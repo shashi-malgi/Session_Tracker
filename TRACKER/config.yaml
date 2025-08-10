@@ -1,0 +1,14 @@
+app:
+  title: "Daily Academic Check-In"
+  icon: "📚"
+  default_language: "English"
+  css_file: "styles.css"
+supabase:
+  url: "https://vojyjsbcpffxpfzkvwav.supabase.co"
+  key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZvanlqc2JjcGZmeHBmemt2d2F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQzMTc1MzIsImV4cCI6MjA2OTg5MzUzMn0.dNLxN8HFfx3JJ9YMS0TSaprAFo5Q1lnu2_pRHNCDDbw"
+openai:
+  api_key: "your-openai-key"
+twilio:
+  sid: "your-twilio-sid"
+  token: "your-twilio-token"
+  from: "+1234567890"
