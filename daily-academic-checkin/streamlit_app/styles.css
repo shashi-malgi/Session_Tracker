@@ -1,0 +1,27 @@
+/* Basic styles for Daily Academic Check-In */
+body {
+    background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+    color: #e5e7eb;
+}
+.card {
+    background: #1f2937;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+.metric-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #111827;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+.badge {
+    background: #2563eb;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+}

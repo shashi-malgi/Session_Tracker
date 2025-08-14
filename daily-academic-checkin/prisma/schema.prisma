@@ -1,0 +1,66 @@
+// Prisma schema for Daily Academic Check-In
+
+datasource db {
+	provider = "sqlite"
+	url      = env("DATABASE_URL")
+}
+
+generator client {
+	provider = "prisma-client-js"
+}
+
+enum Role {
+	TEACHER
+	STUDENT
+}
+
+model User {
+	id           String      @id @default(cuid())
+	email        String      @unique
+	passwordHash String
+	name         String?
+	role         Role
+	loginCount   Int         @default(0)
+	lastLoginAt  DateTime?
+	createdAt    DateTime    @default(now())
+	updatedAt    DateTime    @updatedAt
+
+	// Relations
+	classEntries ClassEntry[] @relation("TeacherClassEntries")
+	studyLogs    StudyLog[]   @relation("StudentStudyLogs")
+}
+
+model ClassEntry {
+	id         String   @id @default(cuid())
+	date       DateTime
+	subject    String
+	topics     Json?
+	notes      String?
+	homework   String?
+	practicals String?
+	createdAt  DateTime @default(now())
+	updatedAt  DateTime @updatedAt
+
+	// Teacher relation
+	teacherId String
+	teacher   User     @relation("TeacherClassEntries", fields: [teacherId], references: [id])
+
+	@@index([date])
+	@@index([teacherId, date])
+}
+
+model StudyLog {
+	id              String   @id @default(cuid())
+	date            DateTime
+	subject         String?
+	durationMinutes Int?
+	notes           String?
+	createdAt       DateTime @default(now())
+	updatedAt       DateTime @updatedAt
+
+	// Student relation
+	studentId String
+	student   User     @relation("StudentStudyLogs", fields: [studentId], references: [id])
+
+	@@index([studentId, date])
+}
