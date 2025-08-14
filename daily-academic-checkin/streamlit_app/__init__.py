@@ -1,0 +1,1 @@
+"""Daily Academic Check-In Streamlit app package."""

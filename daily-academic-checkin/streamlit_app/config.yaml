@@ -1,0 +1,12 @@
+app_name: "Daily Academic Check-In"
+items_per_page: 10
+cache_ttl:
+  users: 300
+  class_data: 600
+notifications:
+  email_enabled: true
+  sms_enabled: false
+ui:
+  default_language: en
+  dark_mode: true
+  high_contrast: false
